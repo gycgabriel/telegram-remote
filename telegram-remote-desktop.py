@@ -133,6 +133,32 @@ class TelegramBot:
             else:
                 return ''
 
+        if usr_msg[0] == "checkstatus":
+            pass
+            
+
+        if usr_msg[0] == "mixcha":
+            res = subprocess.Popen(['mixtcha.bat', usr_msg[1:].encode()], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.DEVNULL)
+            stdout = res.stdout.read().decode("utf-8", 'ignore').strip()
+            stderr = res.stderr.read().decode("utf-8", 'ignore').strip()
+            if stdout:
+                return (stdout)
+            elif stderr:
+                return (stderr)
+            else:
+                return ''
+
+        if usr_msg[0] == "twitcast":
+            res = subprocess.Popen(['twitcast.bat', usr_msg[1:].encode()], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.DEVNULL)
+            stdout = res.stdout.read().decode("utf-8", 'ignore').strip()
+            stderr = res.stderr.read().decode("utf-8", 'ignore').strip()
+            if stdout:
+                return (stdout)
+            elif stderr:
+                return (stderr)
+            else:
+                return ''
+
     def send_response(self, update, context):
         user_message = update.message.text
         # Please modify this
