@@ -136,7 +136,7 @@ class TelegramBot:
     def send_response(self, update, context):
         user_message = update.message.text
         # Please modify this
-        if update.message.chat["username"] != "YOUR_USERNAME":
+        if update.message.chat["username"] != "gabrielgoh0":
             print("[!] " + update.message.chat["username"] +
                   ' tried to use this bot')
             context.bot.send_message(
